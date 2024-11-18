@@ -1,0 +1,25 @@
+const {test} = require('@playwright/test');
+
+test('First playwright test',async ({browser})=>
+{
+const context = await browser.newContext();
+const page = await context.newPage();
+await page.goto("https://www.google.com/");
+
+});
+test('Page playwright test',async ({page})=>
+    {
+        
+      await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+     console.log(await page.title());
+    await page.locator("#username").fill("rahulshettyacademy");
+    await page.locator("#password").fill("learning");
+    const dropdown = page.locator("select.form-conrol");
+    await dropdown.selectOption("consult");
+    await page.locator(".radiotextsty").first()
+    await page.locator("#terms").click();
+    await page.locator("#signInBtn").click();
+    await page.pause();
+    //console.log(await page.locator(".card-body a").first().textContent());
+    
+   });
